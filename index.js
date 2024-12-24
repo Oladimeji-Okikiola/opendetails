@@ -4,6 +4,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import admin from 'firebase-admin';
+const path = require('path');
 
 
 dotenv.config();
@@ -13,7 +14,7 @@ app.use(cors());
 app.use(express.json());
 
 import { jeweleries, blog, clothing, homeDecor, kitchenUtensils, varieties} from './fireservice.js';
-
+app.use(express.static(path.join(__dirname, 'front')));
 
 
 
@@ -21,16 +22,23 @@ import { jeweleries, blog, clothing, homeDecor, kitchenUtensils, varieties} from
 // FETCH THE SHOP PRODUCTS
 app.get('/', async (req, res) => {
     try {
-        let snapshot = await jeweleries.get()
-        let products = snapshot.docs.map(doc => doc.data())
-        res.status(200).json(products)
+        let snapshot = await jeweleries.get();
+        let products = snapshot.docs.map(doc => doc.data());
+
+        res.sendFile(path.join(__dirname, 'front', 'index.html'), (err) => {
+            if (err) {
+                console.log('Error sending HTML:', err);
+                res.status(500).send('Server Error');
+            }
+        });
+
     } catch (error) {
-        console.log('Error fetching products :', error);
+        console.log('Error fetching products:', error);
         res.status(400).json({
             message: error.message
-        })  
+        });
     }
-})
+});
 
 
 // FETCH THE SHOP PRODUCTS
