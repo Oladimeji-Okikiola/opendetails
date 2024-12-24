@@ -20,25 +20,24 @@ app.use(express.static(path.join(__dirname, 'front')));
 
 
 // FETCH THE SHOP PRODUCTS
-app.get('/', async (req, res) => {
-    try {
-        let snapshot = await jeweleries.get();
-        let products = snapshot.docs.map(doc => doc.data());
-
-        res.sendFile(path.join(__dirname, 'front', 'index.html'), (err) => {
-            if (err) {
-                console.log('Error sending HTML:', err);
-                res.status(500).send('Server Error');
-            }
-        });
-
-    } catch (error) {
-        console.log('Error fetching products:', error);
-        res.status(400).json({
-            message: error.message
-        });
-    }
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'front', 'index.html'), (err) => {
+        if (err) {
+            console.log('Error sending HTML:', err);
+            res.status(500).send('Server Error');
+        }
+    });
 });
+
+
+
+
+
+
+
+
+
+
 
 
 // FETCH THE SHOP PRODUCTS
