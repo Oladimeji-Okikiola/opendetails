@@ -16,7 +16,22 @@ import { jeweleries, blog, clothing, homeDecor, kitchenUtensils, varieties} from
 
 
 
-// now
+
+
+// FETCH THE SHOP PRODUCTS
+app.get('/', async (req, res) => {
+    try {
+        let snapshot = await jeweleries.get()
+        let products = snapshot.docs.map(doc => doc.data())
+        res.status(200).json(products)
+    } catch (error) {
+        console.log('Error fetching products :', error);
+        res.status(400).json({
+            message: error.message
+        })  
+    }
+})
+
 
 // FETCH THE SHOP PRODUCTS
 app.get('/products/jeweleries', async (req, res) => {
@@ -31,6 +46,7 @@ app.get('/products/jeweleries', async (req, res) => {
         })  
     }
 })
+
 app.get('/products/clothing', async (req, res) => {
     try {
         let snapshot = await clothing.get()
