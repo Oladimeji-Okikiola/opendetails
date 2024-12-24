@@ -14,20 +14,20 @@ app.use(cors());
 app.use(express.json());
 
 import { jeweleries, blog, clothing, homeDecor, kitchenUtensils, varieties} from './fireservice.js';
-app.use(express.static(path.join(__dirname, 'front')));
+// app.use(express.static(path.join(__dirname, 'front')));
 
 
 
 
 // FETCH THE SHOP PRODUCTS
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'front', 'index.html'), (err) => {
-        if (err) {
-            console.log('Error sending HTML:', err);
-            res.status(500).send('Server Error');
-        }
-    });
-});
+// app.get('/', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'front', 'index.html'), (err) => {
+//         if (err) {
+//             console.log('Error sending HTML:', err);
+//             res.status(500).send('Server Error');
+//         }
+//     });
+// });
 
 
 
