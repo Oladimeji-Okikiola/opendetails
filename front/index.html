@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheet.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="heading">
+        <p>
+            Hi! Welcome to your products deposit API
+        </p>
+    </div>
+
+    <div class="endedd">
+        <h4>Endpoints</h4>
+        <ul>
+            <li><a href="#jeweleries">Jeweleries</a></li>
+            <li><a href="#Clothing">Clothing</a></li>
+            <li><a href="#HomeDecoration">Home Decoration</a></li>
+            <li><a href="#KitchenUtensils">Kitchen Utensils</a></li>
+            <li><a href="#Varieties">Varieties</a></li>
+            <li><a href="#blog">Blog</a></li>
+        </ul>
+    </div>
+
+    <div class="mainnet">
+
+        
+            <section id="jeweleries">
+                <h4>Jeweleries</h4>
+                <div class="request">
+                    <h3>Request</h3>
+                    <p>To fetch the proucts details in the jeweleries endpoint, request should be made to <span class="spanner">/products/jewleries</span></p>
+                </div>
+                <div class="response">
+                    <h3>Response</h3>
+                    <p>
+                        The response would be returned in json format in the below form
+                    </p>
+                    <p>
+                        { <br>
+                            0: <br>
+                            productImage : 'https://productImagelink' <br>
+                            productName : "Beaded Rubber Band" <br>
+                            productPrice : 800 <br>
+                            slug : "beaded-rubber-band" <br>
+                        }
+                    </p>
+                </div>
+            </section>
+        
+        
+            <section id="Clothing">
+                <h4>Clothing</h4>
+                <div class="request">
+                    <h3>Request</h3>
+                    <p>To fetch the proucts details in the Clothing endpoint, request should be made to <span class="spanner">/products/clothing</span></p>
+                </div>
+                <div class="response">
+                    <h3>Response</h3>
+                    <p>
+                        The response would be returned in json format in the below form
+                    </p>
+                    <p>
+                        { <br>
+                            0: <br>
+                            productImage : 'https://productImagelink' <br>
+                            productName : "Beaded Rubber Band" <br>
+                            productPrice : 800 <br>
+                            slug : "beaded-rubber-band" <br>
+                        }
+                    </p>
+                </div>
+            </section>
+        
+        
+            <section id="HomeDecoration">
+                <h4>Home Decoration</h4>
+                <div class="request">
+                    <h3>Request</h3>
+                    <p>To fetch the proucts details in the Home Decoration endpoint, request should be made to <span class="spanner">/products/homeDecoration</span></p>
+                </div>
+                <div class="response">
+                    <h3>Response</h3>
+                    <p>
+                        The response would be returned in json format in the below form
+                    </p>
+                    <p>
+                        { <br>
+                            0: <br>
+                            productImage : 'https://productImagelink' <br>
+                            productName : "Beaded Rubber Band" <br>
+                            productPrice : 800 <br>
+                            slug : "beaded-rubber-band" <br>
+                        }
+                    </p>
+                </div>
+            </section>
+        
+        
+            <section id="KitchenUtensils">
+                <h4>Kitchen Utensils</h4>
+                <div class="request">
+                    <h3>Request</h3>
+                    <p>To fetch the proucts details in the Kitchen Utensils endpoint, request should be made to <span class="spanner">/products/kitchenUtensils</span></p>
+                </div>
+                <div class="response">
+                    <h3>Response</h3>
+                    <p>
+                        The response would be returned in json format in the below form
+                    </p>
+                    <p>
+                        { <br>
+                            0: <br>
+                            productImage : 'https://productImagelink' <br>
+                            productName : "Beaded Rubber Band" <br>
+                            productPrice : 800 <br>
+                            slug : "beaded-rubber-band" <br>
+                        }
+                    </p>
+                </div>
+            </section>
+        
+        
+            <section id="Varieties">
+                <h4>Varieties</h4>
+                <div class="request">
+                    <h3>Request</h3>
+                    <p>To fetch the proucts details in the Varieties endpoint, request should be made to <span class="spanner">/products/varieties</span></p>
+                </div>
+                <div class="response">
+                    <h3>Response</h3>
+                    <p>
+                        The response would be returned in json format in the below form
+                    </p>
+                    <p>
+                        { <br>
+                            0: <br>
+                            productImage : 'https://productImagelink' <br>
+                            productName : "Beaded Rubber Band" <br>
+                            productPrice : 800 <br>
+                            slug : "beaded-rubber-band" <br>
+                        }
+                    </p>
+                </div>
+            </section>
+        
+            <section id="blog">
+                <h4>Blog</h4>
+                <div class="request">
+                    <h3>Request</h3>
+                    <p>To fetch the proucts details in the Varieties endpoint, request should be made to <span class="spanner">/general/blogs</span></p>
+                </div>
+                <div class="response">
+                    <h3>Response</h3>
+                    <p>
+                        The response would be returned in json format in the below form
+                    </p>
+                    <p>
+                        { <br>
+                            0: <br>
+                            blogImage : "string" <br>
+                            blogName : "string" <br>
+                            blogPrice : "string" <br>
+                        }
+                    </p>
+                </div>
+            </section>
+    </div>
+
+    <div class="container">
+        <p>
+          &copy; <span id="displayYear"></span> All Rights Reserved
+          <a href="https://abtech-two.vercel.app">ABTech</a>
+        </p>
+      </div>
+
+
+    <script>
+        fetch('http://127.0.0.1:3000/general/blogs')
+        .then(response => {
+            return response.json()
+        })
+        .then(data => {
+            console.log(data);
+            
+        })
+        .catch(error => {
+            console.error(error);
+            
+        })
+    </script>
+</body>
+</html>
