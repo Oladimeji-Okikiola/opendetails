@@ -4,7 +4,12 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import admin from 'firebase-admin';
-const path = require('path');
+import path from 'path'
+import { fileURLToPath } from 'url';
+
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 
 dotenv.config();
@@ -14,20 +19,21 @@ app.use(cors());
 app.use(express.json());
 
 import { jeweleries, blog, clothing, homeDecor, kitchenUtensils, varieties} from './fireservice.js';
-// app.use(express.static(path.join(__dirname, 'front')));
+app.use(express.static(path.join(__dirname, 'front')));
 
 
 
 
 // FETCH THE SHOP PRODUCTS
-// app.get('/', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'front', 'index.html'), (err) => {
-//         if (err) {
-//             console.log('Error sending HTML:', err);
-//             res.status(500).send('Server Error');
-//         }
-//     });
-// });
+app.get('/', (req, res) => {
+    const filePath = path.join(__dirname, 'front', 'index.html');
+    res.sendFile(filePath, (err) => {
+        if (err) {
+            console.log('Error sending HTML:', err);
+            res.status(500).send('Server Error');
+        }
+    });
+});
 
 
 
